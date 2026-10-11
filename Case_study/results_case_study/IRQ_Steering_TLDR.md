@@ -27,7 +27,7 @@ The goal was to measure:
 -   GPU: Radeon RX 9070 XT
 -   Game: Cyberpunk 2077 (Full Benchmark Run)
 -   Game threads pinned to: **V-Cache CCD0 (CPUs 0-5, 12-17)**
--   IRQ mask used for CCD0: `0xfc0fc0` **(CPUs 6-11, 18-23)**
+-   IRQ mask used for CCD1: `0xfc0fc0` **(CPUs 6-11, 18-23)**
 
 ------------------------------------------------------------------------
 
