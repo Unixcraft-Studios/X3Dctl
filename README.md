@@ -2,7 +2,7 @@
 
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/GrandBIRDLizard/X3Dctl?sort=semver)](https://github.com/GrandBIRDLizard/X3Dctl/tags)
 
-[![RelatedRepos](https://img.shields.io/badge/related-repos-yellow)](https://relatedrepos.com/gh/GrandBIRDLizard/X3Dctl)
+[![RelatedRepos](https://img.shields.io/badge/related-repos-yellow)](https://relatedrepos.com/gh/Unixcraft-Studios/X3Dctl)
 
 x3dctl is a lightweight command-line utility for controlling AMD X3D CPU operating modes on Linux systems.
 
@@ -67,7 +67,7 @@ x3dctl supports two system postures:
 Profiles are defined in:
 `/etc/x3dctl.conf`
 Applications are mapped in:
-  `/etc/x3dctl.conf`
+`/etc/x3dctl.conf`
 
 ---
 
@@ -92,15 +92,6 @@ On heterogeneous CPU designs (such as AMD X3D processors), **automatic IRQ
 migration may introduce cache-to-cache latency** depending on workload and
 configuration.
 
-x3dctl applies deterministic GPU IRQ affinity when switching modes. If
-**irqbalance is active**, it may **override these affinity settings**.
-
-For fully deterministic behavior, it is recommended to **disable** or **appropriately
-configure irqbalance** while using x3dctl.
-
-IRQ affinity changes made by x3dctl are runtime-only and do not persist across
-system reboots.
-
 The irqbalance service may override manually applied IRQ affinity.
 - For the most deterministic behavior:
 **disable irqbalance.
@@ -124,7 +115,7 @@ depending on workload, kernel, scheduler, and firmware handling.
 
 BIOS wording may vary by vendor. x3dctl does not modify this setting at runtime.
 
->Update with links to irqbalance and amd_pstate documentation will be added to readme by the next update usage will be in the man page.
+---
 
 ### Supported profiles:
 
@@ -233,7 +224,7 @@ capability mode after package install.
 - Clear separation between system posture and process policy
 - Minimal privileged attack surface
 - Transparent configuration
-- Low runtime overhead 
+- No runtime overhead 
 
 ---
 
@@ -243,7 +234,7 @@ capability mode after package install.
 - sudo configured for helper execution
 - GCC for building helper binary
 - Make
-- CFS or EEVDF scheduler
+- EEVDF/EEVDF-based, PDS, or BMQ scheduler(tested with positive results).
 - libcap
 
 ---  
@@ -255,5 +246,3 @@ capability mode after package install.
 - CLI semantics will not evolve.
 - Backwards compatibility is guaranteed.
 - Consult Mid-long term goals for the project in the roadmap for more details.
-
-
